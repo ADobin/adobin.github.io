@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 // Import typefaces
 import 'typeface-montserrat'
 import 'typeface-merriweather'
 
 import profilePic from '../assets/headshot.png'
+import githubLogo from '../assets/github.png'
+import twitterLogo from '../assets/Twitter_Logo_Blue.png'
 import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
@@ -13,7 +16,6 @@ class Bio extends React.Component {
       <div
         style={{
           display: 'flex',
-          marginBottom: rhythm(2.5),
         }}
       >
         <img
@@ -26,24 +28,45 @@ class Bio extends React.Component {
             height: rhythm(2),
           }}
         />
-        <p>
-          Collection of blog posts and rambilings of <strong>Alex Dobin</strong>
-          . Living in Washington, working at Microsoft.
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            }}
-          >
-            <a href="https://github.com/adobin" target="_blank">
-              Github
+        <div>
+          <p>
+            Collection of blog posts and rambilings of{' '}
+            <strong>Alex Dobin</strong>. Living in Washington, working at
+            Microsoft.{' '}
+            <a
+              href="https://github.com/adobin"
+              target="_blank"
+              style={{
+                boxShadow: 'none',
+                marginRight: rhythm(1 / 2),
+                marginLeft: rhythm(1 / 2),
+              }}
+            >
+              <img
+                src={githubLogo}
+                alt={'Github'}
+                style={{
+                  width: rhythm(2 / 3),
+                  height: rhythm(2 / 3),
+                }}
+              />
             </a>
-            <a href="https://twitter.com/alexdobin" target="_blank">
-              Twitter
+            <a
+              href="https://twitter.com/alexdobin"
+              target="_blank"
+              style={{ boxShadow: 'none' }}
+            >
+              <img
+                src={twitterLogo}
+                alt={'Twitter'}
+                style={{
+                  width: rhythm(2 / 3),
+                  height: rhythm(2 / 3),
+                }}
+              />
             </a>
-          </div>
-        </p>
+          </p>
+        </div>
       </div>
     )
   }

@@ -8,42 +8,97 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
+    const projectTemplate = path.resolve('./src/templates/project.js')
     resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
-              edges {
-                node {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
+      Promise.all([
+        graphql(
+          `
+            {
+              allMarkdownRemark(
+                sort: { fields: [frontmatter___date], order: DESC }
+                limit: 1000
+                filter: { fields: { slug: { glob: "**/blog/**" } } }
+              ) {
+                edges {
+                  node {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                    }
                   }
                 }
               }
             }
-          }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          `
+        ),
+        graphql(
+          `
+            {
+              allMarkdownRemark(
+                sort: { fields: [frontmatter___date], order: DESC }
+                limit: 1000
+                filter: { fields: { slug: { glob: "**/projects/**" } } }
+              ) {
+                edges {
+                  node {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                    }
+                  }
+                }
+              }
+            }
+          `
+        ),
+      ]).then(result => {
+        console.log(result)
+        const [blogs, projects] = result
+        if (blogs.errors) {
+          console.log(blogs.errors)
+          reject(blogs.errors)
         }
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
+        console.log('Posts')
+        const posts = blogs.data.allMarkdownRemark.edges
 
         _.each(posts, (post, index) => {
-          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-          const next = index === 0 ? null : posts[index - 1].node;
+          const previous =
+            index === posts.length - 1 ? null : posts[index + 1].node
+          const next = index === 0 ? null : posts[index - 1].node
 
           createPage({
             path: post.node.fields.slug,
             component: blogPost,
             context: {
               slug: post.node.fields.slug,
+              previous,
+              next,
+            },
+          })
+        })
+
+        // Create a project page
+        console.log('Projects')
+        const projectPages = projects.data.allMarkdownRemark.edges
+
+        _.each(projectPages, (project, index) => {
+          const previous =
+            index === projectPages.length - 1
+              ? null
+              : projectPages[index + 1].node
+          const next = index === 0 ? null : projectPages[index - 1].node
+
+          createPage({
+            path: project.node.fields.slug,
+            component: projectTemplate,
+            context: {
+              slug: project.node.fields.slug,
               previous,
               next,
             },
