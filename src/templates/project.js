@@ -1,11 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Bio from '../components/Bio'
+import githubLogo from '../assets/github.png'
 import Layout from '../components/layout'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
+import NavigationLinks from '../components/NavigationLinks'
 
 class ProjectTemplate extends React.Component {
   render() {
@@ -21,17 +23,17 @@ class ProjectTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title} - PROJECT</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
+        <h1>
+          {post.frontmatter.title}{' '}
+          <a
+            href={post.frontmatter.source}
+            target="_blank"
+            style={{ boxShadow: 'none' }}
+          >
+            <img src={githubLogo} style={{ marginBottom: 0 }} />
+          </a>
+        </h1>
+
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -39,32 +41,7 @@ class ProjectTemplate extends React.Component {
           }}
         />
         <Bio />
-
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            </li>
-          )}
-
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            </li>
-          )}
-        </ul>
+        <NavigationLinks />
       </Layout>
     )
   }
@@ -87,6 +64,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        source
       }
     }
   }
