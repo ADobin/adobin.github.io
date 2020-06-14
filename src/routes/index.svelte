@@ -40,7 +40,7 @@
   Software engineer living in&nbsp;
   <strong>Washington</strong>
   . Working at Microsoft on&nbsp;
-  <a href="https://powerapps.microsoft.com">Power Apps</a>
+  <a href="https://powerapps.microsoft.com" target="_blank">Power Apps</a>
   .
 </p>
 
