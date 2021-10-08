@@ -1,21 +1,32 @@
-<script context="module">
-	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { posts };
-		});
-	}
+<script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit';
+
+	export const load: Load = async ({ fetch }) => {
+		const resp = await fetch(`blog.json`);
+
+		if (!resp.ok) {
+			const message = await resp.json();
+			return {
+				error: new Error(message)
+			};
+		}
+
+		const posts = (await resp.json()).posts;
+		return {
+			props: {
+				posts
+			}
+		};
+	};
 </script>
 
-<script>
-	export let posts;
+<script lang="ts">
+	type Post = {
+		slug: string;
+		title: string;
+	};
+	export let posts: Post[];
 </script>
-
-<style>
-	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
-	}
-</style>
 
 <svelte:head>
 	<title>Blog</title>
@@ -29,6 +40,8 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
+		<li><a rel="prefetch" href="blog/{post.slug}">{post.title}</a></li>
 	{/each}
 </ul>
+
+<style></style>

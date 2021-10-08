@@ -1,7 +1,17 @@
-// See https://github.com/kaisermann/svelte-preprocess#with-svelte-vs-code
-const sveltePreprocess = require("svelte-preprocess");
+import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-static';
 
-module.exports = {
-  preprocess: sveltePreprocess(),
-  // ...other svelte options (optional)
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: preprocess(),
+
+	kit: {
+		// hydrate the <div id="svelte"> element in src/app.html
+		target: '#svelte',
+		adapter: adapter()
+	}
 };
+
+export default config;
