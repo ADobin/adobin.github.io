@@ -1,3 +1,5 @@
+# This README is currently outdated, this repo has been migrated to [SvelteKit](https://kit.svelte.dev/)
+
 # sapper-template
 
 The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
