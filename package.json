@@ -1,6 +1,6 @@
 {
   "name": "adobin.github.io",
-  "description": "Homepage for Alex dobin",
+  "description": "Homepage for Alex Dobin",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
