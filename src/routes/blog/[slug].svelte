@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 
-	export const load: Load = async ({ page, fetch }) => {
+	export const load: Load = async ({ params, fetch }) => {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		const res = await fetch(`${page.params.slug}.json`);
+		const res = await fetch(`${params.slug}.json`);
 		const data = await res.json();
 
 		if (res.status === 200) {
