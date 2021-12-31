@@ -5,10 +5,12 @@
 <nav>
 	<ul>
 		<li>
-			<a aria-current={$page.path === '/' ? 'page' : undefined} href="/"> home </a>
+			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} href="/"> home </a>
 		</li>
 		<li>
-			<a aria-current={$page.path === '/about' ? 'page' : undefined} href="/about"> about </a>
+			<a aria-current={$page.url.pathname === '/about' ? 'page' : undefined} href="/about">
+				about
+			</a>
 		</li>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
