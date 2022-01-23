@@ -1,10 +1,6 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
-
-	type Post = {
-		slug: string;
-		title: string;
-	};
+	import type { BlogPost } from './[slug].json';
 
 	export const load: Load = async ({ fetch }) => {
 		const resp = await fetch(`blog.json`);
@@ -16,7 +12,7 @@
 			};
 		}
 
-		const posts: Post[] = (await resp.json()).posts;
+		const posts: BlogPost[] = (await resp.json()).posts;
 		return {
 			props: {
 				posts
@@ -26,7 +22,7 @@
 </script>
 
 <script lang="ts">
-	export let posts: Post[];
+	export let posts: BlogPost[];
 </script>
 
 <svelte:head>
@@ -42,8 +38,20 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel="prefetch" href="/blog/{post.slug}">{post.title}</a></li>
+		<li
+			><a rel="prefetch" href="/blog/{post.slug}">{post.metadata.title}</a><div class="date"
+				>{post.metadata.date}</div
+			><div>{post.metadata.description}</div></li
+		>
 	{/each}
 </ul>
 
-<style></style>
+<style>
+	.date {
+		font-style: italic;
+	}
+
+	ul {
+		list-style-type: square;
+	}
+</style>

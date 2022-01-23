@@ -11,6 +11,7 @@ export interface BlogPost {
 	};
 	html: string;
 	fileName: string;
+	slug: string;
 }
 
 export function assertMetadata(metadata: any): asserts metadata is BlogPost['metadata'] {

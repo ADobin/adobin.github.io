@@ -31,10 +31,6 @@ async function processBlogIndex() {
 			(a, b) =>
 				dayjs(a.metadata.date, 'MMM D, YYYY').unix() - dayjs(b.metadata.date, 'MMM D, YYYY').unix()
 		)
-		.filter((post) => variables.dev || !post.metadata.draft)
-		.map((post) => ({
-			title: post.metadata.title,
-			slug: post.fileName.slice(0, -3)
-		}));
+		.filter((post) => variables.dev || !post.metadata.draft);
 }
 export { blogPosts, blogIndex };

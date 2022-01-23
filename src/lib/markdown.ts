@@ -1,5 +1,4 @@
 import vfile from 'to-vfile';
-import { matter } from 'vfile-matter';
 import extract from 'remark-extract-frontmatter';
 import unified from 'unified';
 import parse from 'remark-parse';
@@ -10,7 +9,7 @@ import frontmatter from 'remark-frontmatter';
 import highlight from 'rehype-highlight';
 import yaml from 'js-yaml';
 import dayjs from 'dayjs';
-import { assertMetadata, BlogPost } from '../routes/blog/[slug].json';
+import { assertMetadata, type BlogPost } from '../routes/blog/[slug].json';
 
 const parser = unified()
 	.use(parse)
@@ -27,7 +26,12 @@ export async function process(fileName: string): Promise<BlogPost> {
 		assertMetadata(file.data);
 		// Format the date
 		file.data.date = dayjs(file.data.date).format('MMM D, YYYY');
-		return { metadata: file.data, html: String(file.contents), fileName: file.basename };
+		return {
+			metadata: file.data,
+			html: String(file.contents),
+			fileName: file.basename,
+			slug: file.basename.slice(0, -3)
+		};
 	} catch (exception) {
 		console.error(`Invalid blog post: ${fileName}`);
 		console.error(exception);
