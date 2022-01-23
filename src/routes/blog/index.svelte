@@ -1,6 +1,11 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 
+	type Post = {
+		slug: string;
+		title: string;
+	};
+
 	export const load: Load = async ({ fetch }) => {
 		const resp = await fetch(`blog.json`);
 
@@ -11,7 +16,7 @@
 			};
 		}
 
-		const posts = (await resp.json()).posts;
+		const posts: Post[] = (await resp.json()).posts;
 		return {
 			props: {
 				posts
@@ -21,10 +26,6 @@
 </script>
 
 <script lang="ts">
-	type Post = {
-		slug: string;
-		title: string;
-	};
 	export let posts: Post[];
 </script>
 
@@ -35,6 +36,7 @@
 <h1>Recent posts</h1>
 
 <ul>
+	<!-- {@debug posts} -->
 	{#each posts as post}
 		<!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as

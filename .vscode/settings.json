@@ -1,3 +1,7 @@
 {
-    "editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"git.autofetch": false,
+	"typescript.format.enable": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"cSpell.words": ["vfile"]
 }
