@@ -1,4 +1,4 @@
-import { read } from 'to-vfile';
+import vfile from 'to-vfile';
 import { matter } from 'vfile-matter';
 import extract from 'remark-extract-frontmatter';
 import unified from 'unified';
@@ -22,28 +22,11 @@ const parser = unified()
 	.use(rehypeStringify);
 
 export async function process(fileName: string): Promise<BlogPost> {
-	// const file = parser.parse(await read(filename));
 	try {
-		const file = await parser.process(await read(fileName));
-		console.log(file);
+		const file = await parser.process(await vfile.read(fileName));
 		assertMetadata(file.data);
 		// Format the date
 		file.data.date = dayjs(file.data.date).format('MMM D, YYYY');
-		// let metadata =  null;
-		// if (tree.children.length > 0 && tree.children[0].type == 'yaml') {
-		// 	metadata = yaml.load(tree.children[0].value);
-		// 	tree.children = tree.children.slice(1, tree.children.length);
-		// 	metadata.date = dayjs(metadata.date).format('MMM D, YYYY');
-		// }
-		// let content = runner.stringify(runner.runSync(tree));
-		// if (!file.) {
-		// 	metadata = {
-		// 		title: 'Error!',
-		// 		date: '?',
-		// 		excerpt: 'Missing Frontmatter! Expected at least a title and a date!'
-		// 	};
-		// 	content = 'Missing Frontmatter! Expected at least a title and a date!';
-		// }
 		return { metadata: file.data, html: String(file.contents), fileName: file.basename };
 	} catch (exception) {
 		console.error(`Invalid blog post: ${fileName}`);

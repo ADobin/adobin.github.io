@@ -13,11 +13,11 @@ async function loadPosts() {
 	const postMap = new Map<string, BlogPost>();
 	await Promise.all(
 		(
-			await readdir('src/routes/blog/posts')
+			await readdir('src/posts')
 		)
 			.filter((fileName) => /.+\.md$/.test(fileName))
 			.map(async (fileName) => {
-				const post = await process(`src/routes/blog/posts/${fileName}`);
+				const post = await process(`src/posts/${fileName}`);
 				postMap.set(post.fileName.slice(0, -3), post);
 			})
 	);
