@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-	import { variables } from '$lib/variables';
+	import { dev } from '$app/env';
 	export let status;
 	export let error;
 </script>
@@ -23,7 +23,7 @@
 
 <p>{error.message}</p>
 
-{#if variables.dev && error.stack}
+{#if dev && error.stack}
 	<pre>{error.stack}</pre>
 {/if}
 

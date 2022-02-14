@@ -8,12 +8,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter(),
-		vite: {
-			define: {
-				'process.env': process.env
-			}
-		}
+		adapter: adapter()
 	}
 };
 

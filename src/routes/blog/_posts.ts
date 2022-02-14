@@ -5,7 +5,8 @@ import { readdir } from 'fs/promises';
 import { process } from '$lib/markdown';
 import type { BlogPost } from './[slug].json';
 import dayjs from 'dayjs';
-import { variables } from '$lib/variables';
+import { dev } from '$app/env';
+
 const blogPosts = loadPosts();
 const blogIndex = processBlogIndex();
 
@@ -31,6 +32,6 @@ async function processBlogIndex() {
 			(a, b) =>
 				dayjs(a.metadata.date, 'MMM D, YYYY').unix() - dayjs(b.metadata.date, 'MMM D, YYYY').unix()
 		)
-		.filter((post) => variables.dev || !post.metadata.draft);
+		.filter((post) => dev || !post.metadata.draft);
 }
 export { blogPosts, blogIndex };
