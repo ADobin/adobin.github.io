@@ -9,5 +9,3 @@ tags:
 ---
 
 # Picking a new homelab server (January 2022)
-
-I wanted a new server.

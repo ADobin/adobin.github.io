@@ -28,7 +28,7 @@ export async function process(fileName: string): Promise<BlogPost> {
 		file.data.date = dayjs(file.data.date).format('MMM D, YYYY');
 		return {
 			metadata: file.data,
-			html: String(file.contents),
+			html: String(file),
 			fileName: file.basename,
 			slug: file.basename.slice(0, -3)
 		};

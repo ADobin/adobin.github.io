@@ -1,7 +1,7 @@
-// This file is called `_posts.js` rather than `posts.js`, because
+// This file is called `_posts.ts` rather than `posts.ts`, because
 // we don't want to create an `/blog/posts` route — the leading
 // underscore tells SvelteKit not to do that.
-import { readdir } from 'fs/promises';
+import { basename } from 'path';
 import { process } from '$lib/markdown';
 import type { BlogPost } from './[slug].json';
 import dayjs from 'dayjs';
@@ -13,14 +13,11 @@ const blogIndex = processBlogIndex();
 async function loadPosts() {
 	const postMap = new Map<string, BlogPost>();
 	await Promise.all(
-		(
-			await readdir('src/posts')
-		)
-			.filter((fileName) => /.+\.md$/.test(fileName))
-			.map(async (fileName) => {
-				const post = await process(`src/posts/${fileName}`);
-				postMap.set(post.fileName.slice(0, -3), post);
-			})
+		// Use `import.meta.glob` here to support HMR while writing blog posts
+		Object.keys(import.meta.glob('/src/posts/*.md')).map(async (fileName) => {
+			const post = await process(`src/posts/${basename(fileName)}`);
+			postMap.set(post.fileName.slice(0, -3), post);
+		})
 	);
 	return postMap;
 }
