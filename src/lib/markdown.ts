@@ -35,6 +35,6 @@ export async function process(fileName: string): Promise<BlogPost> {
 	} catch (exception) {
 		console.error(`Invalid blog post: ${fileName}`);
 		console.error(exception);
-		return;
+		throw exception;
 	}
 }

@@ -1,6 +1,6 @@
 ---
 title: First post
-date: 2022/02/13
+date: 2022/02/21
 draft: false
 description: Creating a blog!
 tags:

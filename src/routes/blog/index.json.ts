@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { blogIndex } from './_posts';
+import { loadPosts, processBlogIndex } from './_posts';
 
 export const get: RequestHandler = async () => {
 	return {
@@ -7,7 +7,7 @@ export const get: RequestHandler = async () => {
 			// Bug with how the type is returned from the map causing TypeScript
 			// to throw errors about the format of body.
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			posts: (await blogIndex) as any
+			posts: (await processBlogIndex(await loadPosts())) as any
 		}
 	};
 };
