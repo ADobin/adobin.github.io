@@ -1,6 +1,6 @@
-import vfile from 'to-vfile';
+import { toVFile } from 'to-vfile';
 import extract from 'remark-extract-frontmatter';
-import unified from 'unified';
+import { unified } from 'unified';
 import parse from 'remark-parse';
 import gfm from 'remark-gfm';
 import remark2rehype from 'remark-rehype';
@@ -22,7 +22,7 @@ const parser = unified()
 
 export async function process(fileName: string): Promise<BlogPost> {
 	try {
-		const file = await parser.process(await vfile.read(fileName));
+		const file = await parser.process(await toVFile.read(fileName));
 		assertMetadata(file.data);
 		// Format the date
 		file.data.date = dayjs(file.data.date).format('MMM D, YYYY');
