@@ -1,11 +1,12 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
+	import type { BlogPost } from './[slug].json';
 
 	export const load: Load = async ({ params, fetch }) => {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
 		const res = await fetch(`${params.slug}.json`);
-		const data = await res.json();
+		const data: { post: BlogPost; message?: string } = await res.json();
 
 		if (res.status === 200) {
 			return { props: { post: data.post } };
@@ -16,19 +17,12 @@
 </script>
 
 <script type="ts">
-	type Post = {
-		slug: string;
-		title: string;
-		html: string;
-	};
-	export let post: Post;
+	export let post: BlogPost;
 </script>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.metadata.title}</title>
 </svelte:head>
-
-<h1>{post.title}</h1>
 
 <div class="content">
 	{@html post.html}

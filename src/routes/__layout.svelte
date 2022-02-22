@@ -1,5 +1,15 @@
 <script lang="ts">
 	import Nav from '../components/Nav.svelte';
+	import { invalidate } from '$app/navigation';
+
+	if (import.meta.hot) {
+		import.meta.hot.on('content-update', (data) => {
+			invalidate('/blog/blog.json');
+			invalidate('/blog');
+			invalidate(`/blog/${data.id}.json`);
+			invalidate(`/blog/${data.id}`);
+		});
+	}
 </script>
 
 <Nav />
