@@ -25,7 +25,7 @@
     "js-yaml": "^3.14.1",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.6.0",
-    "rehype-highlight": "^4.1.0",
+    "rehype-highlight": "^5.0.2",
     "rehype-stringify": "^8.0.0",
     "remark-extract-frontmatter": "^3.2.0",
     "remark-frontmatter": "^3.0.0",
