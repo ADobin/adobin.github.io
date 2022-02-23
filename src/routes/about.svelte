@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Alex Dobin - About</title>
+	<title>About - Alex Dobin</title>
 </svelte:head>
 
 <h1>About Alex</h1>
