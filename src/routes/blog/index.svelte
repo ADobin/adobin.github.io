@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Blog - Alex Dobin</title>
 </svelte:head>
 
 <h1>Recent posts</h1>

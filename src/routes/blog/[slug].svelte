@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>{post.metadata.title}</title>
+	<title>{post.metadata.title} - Blog - Alex Dobin</title>
 </svelte:head>
 
 <div class="content">
