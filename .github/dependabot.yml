@@ -5,20 +5,24 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: 'daily'
     labels:
-      - "dependencies"
+      - 'dependencies'
       # Add Kodiak `merge.automerge_label`
-      - "ship it!"
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      - 'ship it!'
+    ignore:
+      # Bug with evaluation of fetch calls on loading of nested endpoints
+      # Bug was introduced sometime after @sveltejs/kit-next.278
+      - dependency-name: '@sveltejs/kit'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     labels:
-      - "dependencies"
+      - 'dependencies'
       # Add Kodiak `merge.automerge_label`
-      - "ship it!"
+      - 'ship it!'
     schedule:
       # Check for updates to GitHub Actions every weekday
-      interval: "daily"
+      interval: 'daily'

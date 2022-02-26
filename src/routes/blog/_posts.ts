@@ -32,7 +32,7 @@ function loadPost(fileName: string): Promise<BlogPost> {
 }
 
 async function processBlogIndex(posts: Map<string, BlogPost>): Promise<BlogPost[]> {
-	const postList = (await posts).values();
+	const postList = posts.values();
 	return Array.from(postList)
 		.sort(
 			(a, b) =>

@@ -2,6 +2,8 @@
 	import type { Load } from '@sveltejs/kit';
 	import type { BlogPost } from './[slug].json';
 
+	export const hydrate = false;
+
 	export const load: Load = async ({ params, fetch }) => {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte

@@ -13,11 +13,7 @@
 			</a>
 		</li>
 		<li>
-			<a
-				rel="prefetch"
-				aria-current={$page.url.pathname.startsWith('/blog') ? 'page' : undefined}
-				href="/blog"
-			>
+			<a aria-current={$page.url.pathname.startsWith('/blog') ? 'page' : undefined} href="/blog">
 				blog
 			</a>
 		</li>
