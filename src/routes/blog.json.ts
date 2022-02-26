@@ -1,8 +1,9 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { loadPosts, processBlogIndex } from './_posts';
+import { loadPosts, processBlogIndex } from './blog/_posts';
 
 export const get: RequestHandler = async () => {
 	return {
+		status: 200,
 		body: {
 			// Bug with how the type is returned from the map causing TypeScript
 			// to throw errors about the format of body.

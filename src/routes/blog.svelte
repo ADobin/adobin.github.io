@@ -1,6 +1,8 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
-	import type { BlogPost } from './[slug].json';
+	import type { BlogPost } from './blog/[slug].json';
+
+	export const hydrate = false;
 
 	export const load: Load = async ({ fetch }) => {
 		const resp = await fetch(`blog.json`);
@@ -34,12 +36,8 @@
 <ul>
 	<!-- {@debug posts} -->
 	{#each posts as post}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
 		<li
-			><a rel="prefetch" href="/blog/{post.slug}">{post.metadata.title}</a><div class="date"
+			><a href="blog/{post.slug}">{post.metadata.title}</a><div class="date"
 				>{post.metadata.date}</div
 			><div>{post.metadata.description}</div></li
 		>

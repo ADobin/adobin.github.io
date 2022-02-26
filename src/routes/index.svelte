@@ -6,19 +6,19 @@
 
 <p>
 	Software engineer living in <strong>Washington</strong>. Working at Microsoft on
-	<a href="https://powerapps.microsoft.com" target="_blank" rel="noopener">Power Apps</a>.
+	<a href="https://powerapps.microsoft.com" target="_blank">Power Apps</a>.
 </p>
 
 <p>
-	<a href="https://github.com/adobin" target="_blank" rel="noopener">
+	<a rel="external" href="https://github.com/adobin" target="_blank">
 		<img class="mark" src="GitHubMark.png" alt="GitHub" title="github.com/adobin" />
 	</a>
 	&nbsp;
-	<a href="https://twitter.com/alexdobin" target="_blank" rel="noopener">
+	<a rel="external" href="https://twitter.com/alexdobin" target="_blank">
 		<img class="mark" src="TwitterMark.png" alt="Twitter" title="twitter.com/alexdobin" />
 	</a>
 	&nbsp;
-	<a href="https://www.linkedin.com/in/alex-dobin/" target="_blank" rel="noopener">
+	<a rel="external" href="https://www.linkedin.com/in/alex-dobin/" target="_blank">
 		<img
 			class="mark linkedIn"
 			src="LinkedInMark.png"
