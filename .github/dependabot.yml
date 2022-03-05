@@ -13,10 +13,6 @@ updates:
       - 'dependencies'
       # Add Kodiak `merge.automerge_label`
       - 'ship it!'
-    ignore:
-      # Bug with evaluation of fetch calls on loading of nested endpoints
-      # Bug was introduced sometime after @sveltejs/kit-next.278
-      - dependency-name: '@sveltejs/kit'
   - package-ecosystem: 'github-actions'
     directory: '/'
     labels:

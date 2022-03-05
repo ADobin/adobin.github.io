@@ -1,24 +1,5 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	import type { BlogPost } from './[slug].json';
-
-	export const hydrate = false;
-
-	export const load: Load = async ({ params, fetch }) => {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
-		const res = await fetch(`${params.slug}.json`);
-		const data: { post: BlogPost; message?: string } = await res.json();
-
-		if (res.status === 200) {
-			return { props: { post: data.post } };
-		} else {
-			return { error: new Error(data.message), status: 404 };
-		}
-	};
-</script>
-
 <script type="ts">
+	import type { BlogPost } from './[slug]';
 	export let post: BlogPost;
 </script>
 
