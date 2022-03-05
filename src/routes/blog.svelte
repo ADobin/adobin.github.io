@@ -1,29 +1,5 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	import type { BlogPost } from './blog/[slug].json';
-
-	export const hydrate = false;
-
-	export const load: Load = async ({ fetch }) => {
-		const resp = await fetch(`blog.json`);
-
-		if (!resp.ok) {
-			const message = await resp.json();
-			return {
-				error: new Error(message)
-			};
-		}
-
-		const posts: BlogPost[] = (await resp.json()).posts;
-		return {
-			props: {
-				posts
-			}
-		};
-	};
-</script>
-
 <script lang="ts">
+	import type { BlogPost } from './blog/[slug]';
 	export let posts: BlogPost[];
 </script>
 

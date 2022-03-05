@@ -9,7 +9,22 @@ import frontmatter from 'remark-frontmatter';
 import highlight from 'rehype-highlight';
 import yaml from 'js-yaml';
 import dayjs from 'dayjs';
-import { assertMetadata, type BlogPost } from '../routes/blog/[slug].json';
+import type { BlogPost } from '../routes/blog/[slug]';
+
+function assertMetadata(metadata: any): asserts metadata is BlogPost['metadata'] {
+	if (
+		typeof metadata === 'object' &&
+		typeof metadata.title === 'string' &&
+		typeof metadata.date === 'string' &&
+		typeof metadata.draft === 'boolean' &&
+		typeof metadata.description === 'string' &&
+		Array.isArray(metadata.tags)
+	) {
+		return;
+	}
+
+	throw new Error('Blog post metadata is invalid');
+}
 
 const parser = unified()
 	.use(parse)
