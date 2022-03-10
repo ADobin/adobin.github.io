@@ -15,6 +15,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		serviceWorker: { register: false },
+		prerender: { default: true },
 
 		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 		vite: () => ({
