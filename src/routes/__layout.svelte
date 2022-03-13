@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Nav from '../components/Nav.svelte';
 	import { invalidate } from '$app/navigation';
+	import { MetaTags } from 'svelte-meta-tags';
+	import { metadata } from '$lib/metadata';
 
 	if (import.meta.hot) {
 		import.meta.hot.on('content-update', (data) => {
@@ -11,6 +13,8 @@
 		});
 	}
 </script>
+
+<MetaTags title={`${$metadata.title} | Alex Dobin`} description={$metadata.description} />
 
 <Nav />
 
