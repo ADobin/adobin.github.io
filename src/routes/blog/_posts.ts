@@ -4,9 +4,9 @@
 import { readdir } from 'fs/promises';
 import { extname } from 'path';
 import { process } from '$lib/markdown';
-import type { BlogPost } from './[slug].json';
 import dayjs from 'dayjs';
 import { dev } from '$app/env';
+import type { BlogPost } from '$lib/types';
 
 async function loadPosts(): Promise<Map<string, BlogPost>> {
 	const postMap = new Map<string, BlogPost>();

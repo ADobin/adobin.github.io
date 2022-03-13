@@ -1,6 +1,11 @@
-<svelte:head>
-	<title>Alex Dobin</title>
-</svelte:head>
+<script lang="ts">
+	import { metadata } from '$lib/metadata';
+
+	metadata.set({
+		title: 'Home',
+		description: 'Welcome to Alex Dobin!'
+	});
+</script>
 
 <h1>Alex Dobin</h1>
 

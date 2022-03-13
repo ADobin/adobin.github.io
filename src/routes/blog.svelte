@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { BlogPost } from './blog/[slug]';
+	import type { BlogPost } from '$lib/types';
+	import { metadata } from '$lib/metadata';
 	export let posts: BlogPost[];
-</script>
 
-<svelte:head>
-	<title>Blog - Alex Dobin</title>
-</svelte:head>
+	metadata.set({
+		title: 'Blog',
+		description: 'A collection of my blog posts.'
+	});
+</script>
 
 <h1>Recent posts</h1>
 

@@ -9,7 +9,7 @@ import frontmatter from 'remark-frontmatter';
 import highlight from 'rehype-highlight';
 import yaml from 'js-yaml';
 import dayjs from 'dayjs';
-import type { BlogPost } from '../routes/blog/[slug]';
+import type { BlogPost } from '$lib/types';
 
 function assertMetadata(metadata: any): asserts metadata is BlogPost['metadata'] {
 	if (
