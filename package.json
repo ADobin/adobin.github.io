@@ -35,7 +35,7 @@
     "remark-rehype": "^10.0.0",
     "svelte": "^3.46.4",
     "svelte-check": "^2.4.6",
-    "svelte-meta-tags": "^2.5.0",
+    "svelte-meta-tags": "^2.5.1",
     "svelte-preprocess": "^4.10.4",
     "to-vfile": "^7.2.0",
     "tslib": "^2.3.1",
