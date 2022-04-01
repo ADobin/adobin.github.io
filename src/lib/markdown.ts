@@ -11,14 +11,14 @@ import yaml from 'js-yaml';
 import dayjs from 'dayjs';
 import type { BlogPost } from '$lib/types';
 
-function assertMetadata(metadata: any): asserts metadata is BlogPost['metadata'] {
+function assertMetadata(metadata: unknown): asserts metadata is BlogPost['metadata'] {
 	if (
 		typeof metadata === 'object' &&
-		typeof metadata.title === 'string' &&
-		typeof metadata.date === 'string' &&
-		typeof metadata.draft === 'boolean' &&
-		typeof metadata.description === 'string' &&
-		Array.isArray(metadata.tags)
+		typeof metadata['title'] === 'string' &&
+		typeof metadata['date'] === 'string' &&
+		typeof metadata['draft'] === 'boolean' &&
+		typeof metadata['description'] === 'string' &&
+		Array.isArray(metadata['tags'])
 	) {
 		return;
 	}

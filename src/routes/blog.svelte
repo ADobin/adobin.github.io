@@ -12,7 +12,6 @@
 <h1>Recent posts</h1>
 
 <ul>
-	<!-- {@debug posts} -->
 	{#each posts as post}
 		<li
 			><a href="blog/{post.slug}">{post.metadata.title}</a><div class="date"

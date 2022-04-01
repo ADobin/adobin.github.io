@@ -11,7 +11,7 @@
 
 <p>
 	Software engineer living in <strong>Washington</strong>. Working at Microsoft on
-	<a href="https://powerapps.microsoft.com" target="_blank">Power Apps</a>.
+	<a rel="external" href="https://powerapps.microsoft.com" target="_blank">Power Apps</a>.
 </p>
 
 <p>
