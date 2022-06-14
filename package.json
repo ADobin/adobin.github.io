@@ -17,7 +17,7 @@
     "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "1.0.0-next.350",
     "@types/js-yaml": "^4.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.27.1",
     "dayjs": "^1.11.3",
     "eslint": "^8.17.0",
