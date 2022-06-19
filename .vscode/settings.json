@@ -2,5 +2,6 @@
 	"editor.formatOnSave": true,
 	"git.autofetch": false,
 	"typescript.format.enable": true,
-	"cSpell.words": ["markdown", "rehype", "vfile"]
+	"cSpell.words": ["markdown", "rehype", "vfile"],
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
