@@ -3,10 +3,10 @@
   "description": "Homepage for Alex Dobin",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "vite package",
+    "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
@@ -41,7 +41,8 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
     "unified": "^10.1.2",
-    "vfile": "^5.3.4"
+    "vfile": "^5.3.4",
+    "vite": "^2.9.13"
   },
   "type": "module",
   "dependencies": {}
