@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.36",
-    "@sveltejs/kit": "1.0.0-next.370",
+    "@sveltejs/kit": "1.0.0-next.372",
     "@types/js-yaml": "^4.0.5",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
