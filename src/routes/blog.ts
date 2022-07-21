@@ -1,7 +1,7 @@
 import { loadPosts, processBlogIndex } from './blog/_posts';
 
 /** @type {import('./blog').RequestHandler} */
-export async function get() {
+export async function GET() {
 	return {
 		status: 200,
 		body: {
