@@ -2,6 +2,16 @@
 	"editor.formatOnSave": true,
 	"git.autofetch": false,
 	"typescript.format.enable": true,
-	"cSpell.words": ["markdown", "rehype", "sveltejs", "sveltekit", "vfile"],
+	"cSpell.words": [
+		"dnsmasq",
+		"hostnames",
+		"markdown",
+		"rehype",
+		"sveltejs",
+		"sveltekit",
+		"tailnet",
+		"Tailscale",
+		"vfile"
+	],
 	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
