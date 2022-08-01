@@ -1,6 +1,7 @@
 <script type="ts">
 	import type { BlogPost } from '$lib/types';
 	import { metadata } from '$lib/metadata';
+	import 'highlight.js/styles/default.css';
 	export let post: BlogPost;
 
 	metadata.set({
@@ -27,24 +28,28 @@
 		font-weight: 500;
 	}
 
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
-	}
-
-	.content :global(pre) :global(code) {
-		background-color: transparent;
-		padding: 0;
-	}
-
 	.content :global(ul) {
 		line-height: 1.5;
 	}
 
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
+	}
+
+	.content :global(.rehype-code-title::before) {
+		content: '📁 ';
+	}
+
+	.content :global(.rehype-code-title) {
+		padding: 0.5em 1em 0.5em 1em;
+		margin-bottom: 0.1em;
+		background: #f3f3f3;
+		color: #444;
+		font-weight: bold;
+	}
+
+	:global(.content .rehype-code-title + pre) {
+		padding-top: 0.1em;
+		margin-top: 0px;
 	}
 </style>

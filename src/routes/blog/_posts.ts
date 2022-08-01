@@ -36,7 +36,7 @@ async function processBlogIndex(posts: Map<string, BlogPost>): Promise<BlogPost[
 	return Array.from(postList)
 		.sort(
 			(a, b) =>
-				dayjs(a.metadata.date, 'MMM D, YYYY').unix() - dayjs(b.metadata.date, 'MMM D, YYYY').unix()
+				dayjs(b.metadata.date, 'MMM D, YYYY').unix() - dayjs(a.metadata.date, 'MMM D, YYYY').unix()
 		)
 		.filter((post) => dev || !post.metadata.draft);
 }

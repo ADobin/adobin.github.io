@@ -9,6 +9,7 @@ import frontmatter from 'remark-frontmatter';
 import highlight from 'rehype-highlight';
 import yaml from 'js-yaml';
 import dayjs from 'dayjs';
+import codeTitle from 'rehype-code-titles';
 import type { BlogPost } from '$lib/types';
 
 function assertMetadata(metadata: unknown): asserts metadata is BlogPost['metadata'] {
@@ -32,6 +33,7 @@ const parser = unified()
 	.use(extract, { yaml: yaml.load })
 	.use(gfm)
 	.use(remark2rehype)
+	.use(codeTitle)
 	.use(highlight)
 	.use(rehypeStringify);
 
