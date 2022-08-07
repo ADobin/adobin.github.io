@@ -1,21 +1,65 @@
 <script lang="ts">
 	import type { BlogPost } from '$lib/types';
-	import { metadata } from '$lib/metadata';
 	import 'highlight.js/styles/default.css';
+	import dayjs from 'dayjs';
+	import Title from '../../components/Title.svelte';
+	import { JsonLd } from 'svelte-meta-tags';
+	import type { Article } from 'schema-dts';
 	export let post: BlogPost;
 
-	metadata.set({
-		title: post.metadata.title,
-		description: post.metadata.description
-	});
+	const article: Article = {
+		'@type': 'Article',
+		headline: post.metadata.title,
+		description: post.metadata.description,
+		author: {
+			'@type': 'Person',
+			name: 'Alex Dobin',
+			worksFor: 'Microsoft'
+		},
+		datePublished: dayjs(post.metadata.date).toISOString(),
+		dateModified: dayjs(post.metadata.date).toISOString(),
+		publisher: {
+			'@type': 'Person',
+			name: 'Alex Dobin',
+			worksFor: 'Microsoft'
+		}
+	};
 </script>
 
-<div class="content">
+<Title
+	title={post.metadata.title}
+	description={post.metadata.description}
+	openGraph={{
+		title: post.metadata.title,
+		description: post.metadata.description,
+		url: `https://alexdobin.dev/blog/${post.metadata.slug}`,
+		type: 'article',
+		article: {
+			publishedTime: dayjs(post.metadata.date).toISOString(),
+			modifiedTime: dayjs(post.metadata.date).toISOString(),
+			section: 'Technology',
+			tags: post.metadata.tags
+		}
+	}}
+/>
+
+<JsonLd schema={article} />
+
+<section class="content">
+	<h1>{post.metadata.title}</h1>
+	<p class="published-date"
+		>First published <time datetime={dayjs(post.metadata.date).format('YYYY-MM-DD')}
+			>{post.metadata.dateDisplay}</time
+		></p
+	>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html post.html}
-</div>
+</section>
 
 <style>
+	.published-date {
+		font-style: italic;
+	}
 	/*
 		By default, CSS is locally scoped to the component,
 		and any unused styles are dead-code-eliminated.
