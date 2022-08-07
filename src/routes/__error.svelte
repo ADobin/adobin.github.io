@@ -1,12 +1,14 @@
 <script context="module" lang="ts">
-	export function load({ error, status }) {
+	import type { Load } from './__types/__error';
+
+	export const load: Load = ({ error, status }) => {
 		return {
 			props: {
 				status,
 				error
 			}
 		};
-	}
+	};
 </script>
 
 <script lang="ts">

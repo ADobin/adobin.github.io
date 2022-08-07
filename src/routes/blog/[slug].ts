@@ -1,7 +1,8 @@
 import { loadPost } from './_posts';
+import type { BlogPost } from '$lib/types';
+import type { RequestHandler } from './__types/[slug]';
 
-/** @type {import('./[slug]').RequestHandler} */
-export async function GET({ params }) {
+export const GET: RequestHandler<{ post?: BlogPost }> = async ({ params }) => {
 	// the `slug` parameter is available because
 	// this file is called [slug].ts
 	const { slug } = params;
@@ -21,4 +22,4 @@ export async function GET({ params }) {
 			}
 		};
 	}
-}
+};
