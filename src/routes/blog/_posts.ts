@@ -34,10 +34,7 @@ function loadPost(fileName: string): Promise<BlogPost> {
 async function processBlogIndex(posts: Map<string, BlogPost>): Promise<BlogPost[]> {
 	const postList = posts.values();
 	return Array.from(postList)
-		.sort(
-			(a, b) =>
-				dayjs(b.metadata.date, 'MMM D, YYYY').unix() - dayjs(a.metadata.date, 'MMM D, YYYY').unix()
-		)
+		.sort((a, b) => dayjs(b.metadata.date).unix() - dayjs(a.metadata.date).unix())
 		.filter((post) => dev || !post.metadata.draft);
 }
 

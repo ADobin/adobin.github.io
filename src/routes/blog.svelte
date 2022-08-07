@@ -1,28 +1,27 @@
 <script lang="ts">
 	import type { BlogPost } from '$lib/types';
-	import { metadata } from '$lib/metadata';
-	export let posts: BlogPost[];
-
-	metadata.set({
-		title: 'Blog',
-		description: 'A collection of my blog posts.'
-	});
+	import dayjs from 'dayjs';
+	import Title from '../components/Title.svelte';
+	export let posts: BlogPost['metadata'][];
 </script>
+
+<Title title="Blog" description="A collection of my blog posts" />
 
 <h1>Recent posts</h1>
 
 <ul>
 	{#each posts as post}
 		<li
-			><a href="blog/{post.slug}">{post.metadata.title}</a><div class="date"
-				>{post.metadata.date}</div
-			><div>{post.metadata.description}</div></li
+			><a href="blog/{post.slug}">{post.title}</a><br />
+			<time datetime={dayjs(post.date).format('YYYY-MM-DD')}>{post.dateDisplay}</time><div
+				>{post.description}</div
+			></li
 		>
 	{/each}
 </ul>
 
 <style>
-	.date {
+	time {
 		font-style: italic;
 	}
 

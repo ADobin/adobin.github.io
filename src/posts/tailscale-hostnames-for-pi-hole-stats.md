@@ -8,7 +8,6 @@ tags:
   - pi-hole
   - magicdns
 ---
-# Pi-hole + Tailscale
 [Tailscale](https://tailscale.com) is a fantastic secure mesh VPN that lets you connect all of your devices to each other, no matter where they are or if you've exposed them publicly to the internet. I use it extensively to use all my homelab services and run it on virtually every server. They have a very generous free tier and hope that enthusiasts enjoy it so much that they bring it to their workplace.
 
 Tailscale publishes a great [article](https://tailscale.com/kb/1114/pi-hole/) on how to use a [Pi-hole](https://pi-hole.net/) as the DNS server on your tailnet, allowing you to fully control the DNS of your device no matter what network you are connected to while leveraging their Magic DNS to connect to the other devices on your tailnet. One thing it doesn't cover is how to reenable conditional forwarding for your Pi-hole so that your statistics are not full of your Tailscale assigned `100.x.x.x` addresses but instead show the machines hostname.

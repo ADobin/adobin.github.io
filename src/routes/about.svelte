@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { metadata } from '$lib/metadata';
-
-	metadata.set({
-		title: 'About',
-		description: 'About Alex Dobin'
-	});
+	import Title from '../components/Title.svelte';
 </script>
+
+<Title title="About" description="About Alex Dobin" />
 
 <h1>About Alex</h1>
 

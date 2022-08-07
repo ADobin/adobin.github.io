@@ -42,7 +42,9 @@ export async function process(fileName: string): Promise<BlogPost> {
 		const file = await parser.process(await toVFile.read(fileName));
 		assertMetadata(file.data);
 		// Format the date
-		file.data.date = dayjs(file.data.date).format('MMM D, YYYY');
+		file.data.dateDisplay = dayjs(file.data.date).format('MMM D, YYYY');
+		// Add the slug information into the metadata
+		file.data.slug = file.basename.slice(0, -3);
 		return {
 			metadata: file.data,
 			html: String(file),
