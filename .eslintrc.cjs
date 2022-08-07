@@ -31,9 +31,6 @@ module.exports = {
 	rules: {
 		'prettier/prettier': ['error', { endOfLine: 'auto' }]
 	},
-	// settings: {
-	// 	'svelte3/typescript': () => require('typescript')
-	// },
 	env: {
 		browser: true,
 		es2017: true,
