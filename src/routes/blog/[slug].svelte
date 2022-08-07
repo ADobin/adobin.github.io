@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import type { BlogPost } from '$lib/types';
 	import { metadata } from '$lib/metadata';
 	import 'highlight.js/styles/default.css';
@@ -11,6 +11,7 @@
 </script>
 
 <div class="content">
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html post.html}
 </div>
 
