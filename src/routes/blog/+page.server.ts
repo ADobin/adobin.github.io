@@ -1,12 +1,8 @@
-import type { BlogPost } from '$lib/types';
-import { loadPosts, processBlogIndex } from './blog/_posts';
-import type { RequestHandler } from './__types/blog';
+import { loadPosts, processBlogIndex } from '$lib/posts';
+import type { PageServerLoad } from './$types';
 
-export const GET: RequestHandler<{ posts: BlogPost['metadata'][] }> = async () => {
+export const load: PageServerLoad = async () => {
 	return {
-		status: 200,
-		body: {
-			posts: (await processBlogIndex(await loadPosts())).map((post) => post.metadata)
-		}
+		posts: (await processBlogIndex(await loadPosts())).map((post) => post.metadata)
 	};
 };

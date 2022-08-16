@@ -1,23 +1,24 @@
 <script lang="ts">
-	import type { BlogPost } from '$lib/types';
+	import type { PageData } from './$types';
 	import 'highlight.js/styles/default.css';
 	import dayjs from 'dayjs';
-	import Title from '../../components/Title.svelte';
+	import Title from '../../../components/Title.svelte';
 	import { JsonLd } from 'svelte-meta-tags';
 	import type { Article } from 'schema-dts';
-	export let post: BlogPost;
+
+	export let data: PageData;
 
 	const article: Article = {
 		'@type': 'Article',
-		headline: post.metadata.title,
-		description: post.metadata.description,
+		headline: data.post.metadata.title,
+		description: data.post.metadata.description,
 		author: {
 			'@type': 'Person',
 			name: 'Alex Dobin',
 			worksFor: 'Microsoft'
 		},
-		datePublished: dayjs(post.metadata.date).toISOString(),
-		dateModified: dayjs(post.metadata.date).toISOString(),
+		datePublished: dayjs(data.post.metadata.date).toISOString(),
+		dateModified: dayjs(data.post.metadata.date).toISOString(),
 		publisher: {
 			'@type': 'Person',
 			name: 'Alex Dobin',
@@ -27,18 +28,18 @@
 </script>
 
 <Title
-	title={post.metadata.title}
-	description={post.metadata.description}
+	title={data.post.metadata.title}
+	description={data.post.metadata.description}
 	openGraph={{
-		title: post.metadata.title,
-		description: post.metadata.description,
-		url: `https://alexdobin.dev/blog/${post.metadata.slug}`,
+		title: data.post.metadata.title,
+		description: data.post.metadata.description,
+		url: `https://alexdobin.dev/blog/${data.post.metadata.slug}`,
 		type: 'article',
 		article: {
-			publishedTime: dayjs(post.metadata.date).toISOString(),
-			modifiedTime: dayjs(post.metadata.date).toISOString(),
+			publishedTime: dayjs(data.post.metadata.date).toISOString(),
+			modifiedTime: dayjs(data.post.metadata.date).toISOString(),
 			section: 'Technology',
-			tags: post.metadata.tags
+			tags: data.post.metadata.tags
 		}
 	}}
 />
@@ -46,14 +47,14 @@
 <JsonLd schema={article} />
 
 <section class="content">
-	<h1>{post.metadata.title}</h1>
+	<h1>{data.post.metadata.title}</h1>
 	<p class="published-date"
-		>First published <time datetime={dayjs(post.metadata.date).format('YYYY-MM-DD')}
-			>{post.metadata.dateDisplay}</time
+		>First published <time datetime={dayjs(data.post.metadata.date).format('YYYY-MM-DD')}
+			>{data.post.metadata.dateDisplay}</time
 		></p
 	>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html post.html}
+	{@html data.post.html}
 </section>
 
 <style>

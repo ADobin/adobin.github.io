@@ -1,8 +1,8 @@
-import { loadPost } from './_posts';
-import type { BlogPost } from '$lib/types';
-import type { RequestHandler } from './__types/[slug]';
+import { error } from '@sveltejs/kit';
+import { loadPost } from '$lib/posts';
+import type { PageServerLoad } from './$types';
 
-export const GET: RequestHandler<{ post?: BlogPost }> = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	// the `slug` parameter is available because
 	// this file is called [slug].ts
 	const { slug } = params;
@@ -10,16 +10,9 @@ export const GET: RequestHandler<{ post?: BlogPost }> = async ({ params }) => {
 		const post = await loadPost(slug);
 
 		return {
-			body: {
-				post
-			}
+			post
 		};
 	} catch (err) {
-		return {
-			status: 404,
-			body: {
-				message: 'Not found'
-			}
-		};
+		throw error(404, 'Post not found');
 	}
 };
