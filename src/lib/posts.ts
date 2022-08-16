@@ -1,6 +1,3 @@
-// This file is called `_posts.ts` rather than `posts.ts`, because
-// we don't want to create an `/blog/posts` route — the leading
-// underscore tells SvelteKit not to do that.
 import { readdir } from 'fs/promises';
 import { extname } from 'path';
 import { process } from '$lib/markdown';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Title from '../components/Title.svelte';
+	import Title from '../../components/Title.svelte';
 </script>
 
 <Title title="About" description="About Alex Dobin" />

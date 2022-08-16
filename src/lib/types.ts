@@ -1,4 +1,4 @@
-export interface BlogPost {
+export type BlogPost = {
 	metadata: {
 		title: string;
 		dateDisplay: string;
@@ -11,4 +11,4 @@ export interface BlogPost {
 	html: string;
 	fileName: string;
 	slug: string;
-}
+};
