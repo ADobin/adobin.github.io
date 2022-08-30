@@ -2,7 +2,7 @@ import { readdir } from 'fs/promises';
 import { extname } from 'path';
 import { process } from '$lib/markdown';
 import dayjs from 'dayjs';
-import { dev } from '$app/env';
+import { dev } from '$app/environment';
 import type { BlogPost } from '$lib/types';
 
 async function loadPosts(): Promise<Map<string, BlogPost>> {
