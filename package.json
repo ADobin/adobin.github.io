@@ -40,7 +40,7 @@
     "schema-dts": "^1.1.0",
     "svelte": "^3.52.0",
     "svelte-check": "^2.9.2",
-    "svelte-eslint-parser": "^0.19.0",
+    "svelte-eslint-parser": "^0.19.2",
     "svelte-meta-tags": "^2.6.3",
     "svelte-preprocess": "^4.10.7",
     "to-vfile": "^7.2.0",
