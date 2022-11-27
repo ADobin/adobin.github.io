@@ -21,6 +21,10 @@
 		<img class="mark" src="TwitterMark.png" alt="Twitter" title="twitter.com/alexdobin" />
 	</a>
 	&nbsp;
+	<a rel="external noreferrer me" href="https://social.alexdobin.com/@alex" target="_blank">
+		<img class="mark" src="mastodon-mark.svg" alt="Mastodon" title="social.alexdobin.com/@alex" />
+	</a>
+	&nbsp;
 	<a rel="external noreferrer" href="https://www.linkedin.com/in/alex-dobin/" target="_blank">
 		<img
 			class="mark linkedIn"
