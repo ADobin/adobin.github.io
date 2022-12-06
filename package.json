@@ -39,7 +39,7 @@
     "remark-rehype": "^10.0.0",
     "schema-dts": "^1.1.0",
     "svelte": "^3.53.1",
-    "svelte-check": "^2.10.0",
+    "svelte-check": "^2.10.1",
     "svelte-eslint-parser": "^0.22.1",
     "svelte-meta-tags": "^2.6.4",
     "svelte-preprocess": "^4.10.7",
