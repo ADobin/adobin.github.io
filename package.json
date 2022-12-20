@@ -48,7 +48,7 @@
     "typescript": "^4.9.4",
     "unified": "^10.1.2",
     "vfile": "^5.3.6",
-    "vite": "^4.0.0"
+    "vite": "^4.0.2"
   },
   "type": "module"
 }
