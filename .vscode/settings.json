@@ -2,7 +2,9 @@
 	"editor.formatOnSave": true,
 	"git.autofetch": false,
 	"cSpell.words": [
+		"alexdobin",
 		"dnsmasq",
+		"fediverse",
 		"hostnames",
 		"markdown",
 		"rehype",
@@ -10,6 +12,7 @@
 		"sveltekit",
 		"tailnet",
 		"Tailscale",
+		"Traefik",
 		"vfile"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib",
