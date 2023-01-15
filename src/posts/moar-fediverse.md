@@ -3,7 +3,6 @@ title: Anyone need more fediverse?
 date: 2023/01/08
 draft: false
 description: Running a single user Mastodon instance can be lonely. But it doesn't have to be!
-guid: 811b66a2-5b2e-4dcd-bfa9-2d953b61b45b
 tags:
   - mastodon
   - fediverse

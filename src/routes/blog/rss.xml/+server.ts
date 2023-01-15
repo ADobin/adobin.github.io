@@ -28,7 +28,7 @@ export const GET: RequestHandler = async () => {
 		item.ele('link').txt(`https://alexdobin.com/blog/${post.metadata.slug}`);
 		item.ele('pubDate').txt(post.metadata.utcDateString);
 		item.ele('description').txt(post.metadata.description);
-		item.ele('guid').txt(post.metadata.guid);
+		item.ele('guid').txt(`https://alexdobin.com/blog/${post.metadata.slug}`);
 	});
 
 	return new Response(rss.toString().trim(), {

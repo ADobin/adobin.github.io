@@ -3,7 +3,6 @@ title: Creating a blog
 date: 2022/02/21
 draft: false
 description: Creating a blog!
-guid: 85b4cdce-779a-48fa-babb-e86ecb369f93
 tags:
   - intro
 ---
