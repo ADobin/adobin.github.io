@@ -16,5 +16,6 @@
 		"vfile"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"eslint.validate": ["javascript", "javascriptreact", "svelte"]
+	"eslint.validate": ["javascript", "javascriptreact", "svelte"],
+	"editor.insertSpaces": false
 }

@@ -50,5 +50,8 @@
     "vfile": "^5.3.6",
     "vite": "^4.0.4"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "xmlbuilder2": "^3.0.2"
+  }
 }

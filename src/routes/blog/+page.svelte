@@ -7,7 +7,10 @@
 
 <Title title="Blog" description="A collection of my blog posts" />
 
-<h1>Recent posts</h1>
+<div class="header">
+	<h1>Recent posts</h1>
+	<a href="blog/rss.xml"><img class="mark" src="rss.png" alt="rss" /></a>
+</div>
 
 <ul>
 	{#each data.posts as post}
@@ -27,5 +30,16 @@
 
 	ul {
 		list-style-type: square;
+	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.mark {
+		width: 32px;
+		height: 32px;
+		opacity: 50%;
 	}
 </style>
