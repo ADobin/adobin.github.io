@@ -45,7 +45,7 @@ export async function process(fileName: string): Promise<BlogPost> {
 		assertMetadata(file.data);
 		// Format the date
 		file.data.dateDisplay = dayjs(file.data.date).format('MMM D, YYYY');
-		file.data.utcDateString = dayjs(file.data.date).utc().format();
+		file.data.utcDateString = dayjs(file.data.date).utc().toDate().toUTCString();
 		// Add the slug information into the metadata
 		file.data.slug = file.basename.slice(0, -3);
 		return {
