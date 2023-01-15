@@ -3,6 +3,7 @@ title: Tailscale hostnames for Pi-hole stats
 date: 2022/08/01
 draft: false
 description: Adding support for conditional forwarding to include your Tailscale hostnames in your Pi-hole statistics.
+guid: 15e25870-ef9e-4769-aa32-3e9aec5608fd
 tags:
   - tailscale
   - pi-hole

@@ -9,6 +9,7 @@ import frontmatter from 'remark-frontmatter';
 import highlight from 'rehype-highlight';
 import yaml from 'js-yaml';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import codeTitle from 'rehype-code-titles';
 import type { BlogPost } from '$lib/types';
 
@@ -39,10 +40,12 @@ const parser = unified()
 
 export async function process(fileName: string): Promise<BlogPost> {
 	try {
+		dayjs.extend(utc);
 		const file = await parser.process(await toVFile.read(fileName));
 		assertMetadata(file.data);
 		// Format the date
 		file.data.dateDisplay = dayjs(file.data.date).format('MMM D, YYYY');
+		file.data.utcDateString = dayjs(file.data.date).utc().format();
 		// Add the slug information into the metadata
 		file.data.slug = file.basename.slice(0, -3);
 		return {
