@@ -27,7 +27,7 @@
     "eslint-plugin-svelte": "^2.22.0",
     "highlight.js": "^11.7.0",
     "js-yaml": "^4.0.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.5",
     "prettier-plugin-svelte": "^2.9.0",
     "rehype-code-titles": "^1.2.0",
     "rehype-highlight": "^6.0.0",
