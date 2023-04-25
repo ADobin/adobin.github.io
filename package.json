@@ -49,7 +49,7 @@
     "unified": "^10.1.2",
     "vfile": "^5.3.7",
     "vite": "^4.3.1",
-    "xmlbuilder2": "^3.0.2"
+    "xmlbuilder2": "^3.1.0"
   },
   "type": "module"
 }
