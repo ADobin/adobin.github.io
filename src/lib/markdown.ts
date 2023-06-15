@@ -1,4 +1,3 @@
-import { toVFile } from 'to-vfile';
 import extract from 'remark-extract-frontmatter';
 import { unified } from 'unified';
 import parse from 'remark-parse';
@@ -11,6 +10,8 @@ import yaml from 'js-yaml';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import codeTitle from 'rehype-code-titles';
+import { readFile } from 'fs/promises';
+import { basename } from 'path';
 import type { BlogPost } from '$lib/types';
 
 function assertMetadata(metadata: unknown): asserts metadata is BlogPost['metadata'] {
@@ -41,18 +42,18 @@ const parser = unified()
 export async function process(fileName: string): Promise<BlogPost> {
 	try {
 		dayjs.extend(utc);
-		const file = await parser.process(await toVFile.read(fileName));
+		const file = await parser.process(await readFile(fileName, 'utf-8'));
 		assertMetadata(file.data);
 		// Format the date
 		file.data.dateDisplay = dayjs(file.data.date).format('MMM D, YYYY');
 		file.data.utcDateString = dayjs(file.data.date).utc().toDate().toUTCString();
 		// Add the slug information into the metadata
-		file.data.slug = file.basename.slice(0, -3);
+		file.data.slug = basename(fileName).slice(0, -3);
 		return {
 			metadata: file.data,
 			html: String(file),
-			fileName: file.basename,
-			slug: file.basename.slice(0, -3)
+			fileName: fileName,
+			slug: file.data.slug.slice(0, -3)
 		};
 	} catch (exception) {
 		console.error(`Invalid blog post: ${fileName}`);
