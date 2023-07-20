@@ -24,7 +24,7 @@
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-svelte": "^2.32.2",
+    "eslint-plugin-svelte": "^2.32.3",
     "highlight.js": "^11.8.0",
     "js-yaml": "^4.0.0",
     "prettier": "^2.8.8",
