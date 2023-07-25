@@ -43,7 +43,7 @@
     "svelte-eslint-parser": "^0.32.1",
     "svelte-meta-tags": "^2.8.0",
     "svelte-preprocess": "^5.0.4",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "typescript": "^5.1.6",
     "unified": "^10.1.2",
     "vfile": "^6.0.1",
