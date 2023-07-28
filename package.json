@@ -15,7 +15,7 @@
     "prepare": "npm run sync"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^2.0.2",
+    "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.22.3",
     "@types/js-yaml": "^4.0.5",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
