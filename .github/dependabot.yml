@@ -13,6 +13,12 @@ updates:
       - 'dependencies'
       # Add Kodiak `merge.automerge_label`
       - 'ship it!'
+    groups:
+      prettier:
+        patterns:
+          - 'prettier'
+          - 'prettier-*'
+          - 'eslint-*-prettier'
   - package-ecosystem: 'github-actions'
     directory: '/'
     labels:
