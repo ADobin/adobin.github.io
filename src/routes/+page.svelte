@@ -17,10 +17,6 @@
 		<img class="mark" src="GitHubMark.png" alt="GitHub" title="github.com/adobin" />
 	</a>
 	&nbsp;
-	<a rel="external noreferrer" href="https://twitter.com/alexdobin" target="_blank">
-		<img class="mark" src="TwitterMark.png" alt="Twitter" title="twitter.com/alexdobin" />
-	</a>
-	&nbsp;
 	<a rel="external noreferrer me" href="https://social.alexdobin.com/@alex" target="_blank">
 		<img class="mark" src="mastodon-mark.svg" alt="Mastodon" title="social.alexdobin.com/@alex" />
 	</a>
