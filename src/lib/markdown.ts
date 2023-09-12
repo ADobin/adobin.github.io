@@ -40,7 +40,6 @@ const parser = unified()
 	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(remark2rehype)
 	.use(codeTitle)
-	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(highlight)
 	.use(rehypeStringify);
 
