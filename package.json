@@ -17,7 +17,7 @@
   "devDependencies": {
     "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.25.0",
-    "@types/js-yaml": "^4.0.5",
+    "@types/js-yaml": "^4.0.6",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "dayjs": "^1.11.9",
