@@ -30,14 +30,10 @@ function assertMetadata(metadata: unknown): asserts metadata is BlogPost['metada
 }
 
 const parser = unified()
-	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(parse)
-	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(frontmatter, ['yaml'])
 	.use(extract, { yaml: yaml.load })
-	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(gfm)
-	//@ts-expect-error unified plugins are in the process of updating to latest API
 	.use(remark2rehype)
 	.use(codeTitle)
 	.use(highlight)
