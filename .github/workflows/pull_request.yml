@@ -6,7 +6,7 @@ name: Pull request validation
 on:
   # Triggers the workflow on pull request events but only for the source branch
   pull_request:
-    branches: [ source ]
+    branches: [source]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,6 +22,8 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
+        with:
+          node-version: '20.9.x'
 
       - run: npm install
       - run: npm run build
