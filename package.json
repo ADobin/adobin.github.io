@@ -44,7 +44,7 @@
     "svelte-meta-tags": "^3.1.0",
     "svelte-preprocess": "^5.1.1",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.2",
     "unified": "^11.0.4",
     "vfile": "^6.0.1",
     "vite": "^4.5.0",
