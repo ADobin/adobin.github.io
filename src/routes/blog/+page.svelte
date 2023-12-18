@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 	import dayjs from 'dayjs';
 	import Title from '../../components/Title.svelte';
 	export let data: PageData;
@@ -9,13 +10,13 @@
 
 <div class="header">
 	<h1>Recent posts</h1>
-	<a href="blog/rss.xml"><img class="mark" src="rss.png" alt="rss" /></a>
+	<a href="{base}/blog/rss.xml"><img class="mark" src="{base}/rss.png" alt="rss" /></a>
 </div>
 
 <ul>
 	{#each data.posts as post}
 		<li
-			><a href="blog/{post.slug}">{post.title}</a><br />
+			><a href="{base}/blog/{post.slug}">{post.title}</a><br />
 			<time datetime={dayjs(post.date).format('YYYY-MM-DD')}>{post.dateDisplay}</time><div
 				>{post.description}</div
 			></li
