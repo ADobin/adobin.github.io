@@ -8,7 +8,7 @@
 			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} href="/"> home </a>
 		</li>
 		<li>
-			<a aria-current={$page.url.pathname === '/about' ? 'page' : undefined} href="/about">
+			<a aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined} href="/about">
 				about
 			</a>
 		</li>
