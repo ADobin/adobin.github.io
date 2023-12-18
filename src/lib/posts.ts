@@ -8,9 +8,7 @@ import type { BlogPost } from '$lib/types';
 async function loadPosts(): Promise<Map<string, BlogPost>> {
 	const postMap = new Map<string, BlogPost>();
 	await Promise.all(
-		(
-			await readdir('src/posts')
-		)
+		(await readdir('src/posts'))
 			.filter((fileName) => /.+\.md$/.test(fileName))
 			.map(async (fileName) => {
 				const post = await loadPost(fileName);
