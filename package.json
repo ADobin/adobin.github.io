@@ -15,8 +15,9 @@
     "prepare": "npm run sync"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^2.0.3",
-    "@sveltejs/kit": "^1.30.3",
+    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@types/js-yaml": "^4.0.9",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
@@ -47,7 +48,7 @@
     "typescript": "^5.3.3",
     "unified": "^11.0.4",
     "vfile": "^6.0.1",
-    "vite": "^4.5.2",
+    "vite": "^5.0.0",
     "xmlbuilder2": "^3.1.1"
   },
   "type": "module"
