@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolveRoute } from '$app/paths';
 	import type { PageData } from './$types';
 	import dayjs from 'dayjs';
 	import Title from '../../components/Title.svelte';
@@ -15,7 +16,7 @@
 <ul>
 	{#each data.posts as post}
 		<li
-			><a href="blog/{post.slug}">{post.title}</a><br />
+			><a href={resolveRoute('/blog/[slug]', { slug: post.slug })}>{post.title}</a><br />
 			<time datetime={dayjs(post.date).format('YYYY-MM-DD')}>{post.dateDisplay}</time><div
 				>{post.description}</div
 			></li
