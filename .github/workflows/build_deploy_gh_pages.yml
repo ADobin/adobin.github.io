@@ -6,9 +6,9 @@ name: Build and deploy GitHub pages
 on:
   # Triggers the workflow on push or pull request events but only for the "source" branch
   push:
-    branches: [ "source" ]
+    branches: ['source']
   pull_request:
-    branches: [ "source" ]
+    branches: ['source']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,9 +22,9 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
-  
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -37,7 +37,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
@@ -50,6 +50,7 @@ jobs:
           npm run build
 
       - name: Upload GitHub Pages artifact
+        if: ${{ github.ref == 'refs/heads/source' }}
         uses: actions/upload-pages-artifact@v3.0.1
         with:
           # Artifact name
@@ -58,7 +59,7 @@ jobs:
           path: build/
           # Duration after which artifact will expire in days.
           # retention-days: # optional, default is 1
-          
+
   deploy:
     environment:
       name: github-pages
@@ -66,9 +67,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
+    if: ${{ github.ref == 'refs/heads/source' }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-          
-          
