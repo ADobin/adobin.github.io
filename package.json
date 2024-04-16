@@ -49,7 +49,7 @@
     "typescript": "^5.4.5",
     "unified": "^11.0.4",
     "vfile": "^6.0.1",
-    "vite": "^5.2.8",
+    "vite": "^5.2.9",
     "xmlbuilder2": "^3.1.1"
   },
   "type": "module"
