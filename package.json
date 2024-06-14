@@ -15,7 +15,7 @@
     "prepare": "npm run sync"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/kit": "^2.5.10",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@types/js-yaml": "^4.0.9",
