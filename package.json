@@ -47,7 +47,7 @@
     "svelte-preprocess": "^6.0.1",
     "tslib": "^2.6.3",
     "typescript": "^5.4.5",
-    "unified": "^11.0.4",
+    "unified": "^11.0.5",
     "vfile": "^6.0.1",
     "vite": "^5.3.1",
     "xmlbuilder2": "^3.1.1"
