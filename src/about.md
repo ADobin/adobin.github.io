@@ -1,5 +1,5 @@
 ---
-title: About - Alex Dobin
+title: About
 eleventyNavigation:
   key: about
   order: 2
