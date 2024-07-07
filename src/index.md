@@ -2,6 +2,7 @@
 title: Alex Dobin - alexdobin.com
 eleventyNavigation:
   key: home
+  order: 1
 ---
 # Alex Dobin
 
