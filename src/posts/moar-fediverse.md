@@ -1,6 +1,6 @@
 ---
 title: Anyone need more fediverse?
-date: 2023/01/08
+date: 2023-01-08
 draft: false
 description: Running a single user Mastodon instance can be lonely. But it doesn't have to be!
 tags:
@@ -28,7 +28,7 @@ There are a few different steps, spread across a few containers, to be able to r
 ### Configuring and running FakeRelay
 [FakeRelay](https://github.com/g3rv4/FakeRelay/) has pretty good documentation in it's README but you have to make sure to follow the guide for [I want to run it myself!](https://github.com/g3rv4/FakeRelay/#i-want-to-run-this-myself). I use [Traefik](https://doc.traefik.io/traefik/) as my reverse proxy as well, so my `docker-compose.yaml` looks like this:
 
-```yaml:docker-compose.yaml
+```yaml
 fakerelay:
     image: 'ghcr.io/g3rv4/fakerelay:latest'
     command: web
@@ -75,7 +75,7 @@ Now that we have our FakeRelay instance running and authorized, we need to add i
 ### Configuring and running GetMoarFediverse
 There are several options for how to run `GetMoarFediverse`, including utilizing GitHub actions. Instead we will follow the docker-compose method outlined in the [README](https://github.com/g3rv4/GetMoarFediverse#you-can-run-it-on-docker) to keep everything running on our own server. The `docker-compose.yaml` file looks like this:
 
-```yaml:docker-compose.yaml
+```yaml
   getmoarfediverse:
     container_name: getmoarfediverse
     image: 'ghcr.io/g3rv4/getmoarfediverse:latest'
@@ -85,7 +85,7 @@ There are several options for how to run `GetMoarFediverse`, including utilizing
 
 Before running, you will want to create the configuration file `config.json` needed for `GetMoarFediverse`. Below is an example configuration that I have used, placing it in `/mnt/data/appdata/getmoarfediverse` or wherever you have locate the volume for your container.
 
-```json:config.json
+```json
 {
   "FakeRelayUrl": "https://fakerelay.alexdobin.com",
   "FakeRelayApiKey": "YOUR_API_KEY_HERE",

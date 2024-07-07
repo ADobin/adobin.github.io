@@ -1,0 +1,125 @@
+---js
+{
+	activeKey: function(data) {
+		return data.eleventyNavigation?.key ?? data.parentNav ?? data.page.fileSlug;
+	},
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<title @text="this.title"></title>
+		<link rel="icon" type="image/png" href="favicon.png">
+		<style webc:keep @html="this.getCSS(this.page.url)"></style>
+		<script webc:keep @html="this.getJS(this.page.url)"></script>
+		<script webc:raw webc:keep defer data-domain="alexdobin.com" src="https://plausible.alexdobin.com/js/plausible.js"></script>
+	</head>
+	<body>
+		<nav class="nav-bar" @html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all), { activeKey: activeKey($data), activeListItemClass: 'current-nav' })"></nav>
+		<main><template webc:nokeep @html="this.content"></template></main>
+		<footer webc:nokeep></footer>
+	</body>
+</html>
+
+<style>
+	@view-transition {
+		navigation: auto;
+	}
+
+	body {
+		margin: 0;
+		font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+			Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #333;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 0 0 0.5em 0;
+		font-weight: 400;
+		line-height: 1.2;
+		font-family: Montserrat, sans-serif;
+		font-feature-settings: "kern", "liga", "clig", "calt";
+	}
+
+	h1 {
+		font-size: 2em;
+		font-weight: 900;
+	}
+
+	a {
+		color: inherit;
+	}
+
+
+	@media (min-width: 400px) {
+		body {
+			font-size: 16px;
+		}
+	}
+
+	main {
+		position: relative;
+		max-width: 56em;
+		background-color: white;
+		padding: 2em;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+
+	.nav-bar {
+		border-bottom: 1px solid rgba(255, 62, 0, 0.1);
+		font-weight: 300;
+		padding: 0 1em;
+
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		/* clearfix */
+		ul::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		li {
+			display: block;
+			float: left;
+		}
+
+		a {
+			text-decoration: none;
+			padding: 1em 0.5em;
+			display: block;
+		}
+
+		.current-nav {
+			a {
+				position: relative;
+				display: inline-block;
+			}
+
+			a::after {
+				position: absolute;
+				content: '';
+				width: calc(100% - 1em);
+				height: 2px;
+				background-color: rgb(255, 62, 0);
+				display: block;
+				bottom: -1px;
+			}
+		}
+
+	}
+</style>

@@ -1,6 +1,6 @@
 ---
 title: Picking a server for homelab
-date: 2022/01/22
+date: 2022-01-22
 draft: true
 description: My description
 tags:
