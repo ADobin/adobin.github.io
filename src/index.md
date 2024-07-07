@@ -1,5 +1,5 @@
 ---
-title: Alex Dobin - alexdobin.com
+title: Home
 eleventyNavigation:
   key: home
   order: 1
