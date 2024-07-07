@@ -3,7 +3,8 @@ import { EleventyRenderPlugin, InputPathToUrlTransformPlugin } from "@11ty/eleve
 import { VentoPlugin } from 'eleventy-plugin-vento';
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
@@ -35,6 +36,24 @@ export default function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(syntaxHighlight);
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom", // or "rss", "json"
+		outputPath: "/feed.xml",
+		collection: {
+			name: "posts", // iterate over `collections.posts`
+			limit: 10,     // 0 means no limit
+		},
+		metadata: {
+			language: "en",
+			title: "Alex Dobin's Blog",
+			subtitle: "A blog about technology and homelabbing",
+			base: "https://alexdobin.com/",
+			author: {
+				name: "Alex Dobin",
+				email: "alex@dobin.dev", // Optional
+			}
+		}
+	});
 
 	eleventyConfig.addPassthroughCopy({ static: "/" });
 }
