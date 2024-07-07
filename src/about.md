@@ -2,6 +2,7 @@
 title: About - Alex Dobin
 eleventyNavigation:
   key: about
+  order: 2
 ---
 # About Alex
 
