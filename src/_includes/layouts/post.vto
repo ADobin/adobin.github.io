@@ -1,0 +1,9 @@
+---
+layout: layouts/base.webc
+---
+<style>{{ include "components/prism-ghcolors.css" }}</style>
+{{ set dateTimeFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: "long" }) }}
+
+<h1>{{ title }}</h1>
+<small style="font-style: italic">First published on <time datetime="{{ date }}">{{ dateTimeFormatter.format(date) }}</time></small>
+{{ content }}

@@ -1,6 +1,6 @@
 ---
 title: Creating a blog
-date: 2022/02/21
+date: 2022-02-21
 draft: false
 description: Creating a blog!
 tags:

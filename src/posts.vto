@@ -1,0 +1,19 @@
+---
+title: Blog posts - Alex Dobin
+eleventyImport:
+  collections: ["post"]
+eleventyNavigation:
+  key: blog
+  order: 3
+---
+<style>{{ include "components/posts.css"}}</style>
+
+{{ set dateTimeFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: "long" }) }}
+<h1>Recent posts</h1>
+<ul class="posts">
+{{ for post of collections.posts |> filter(post => !post.data.draft) |> sort((a, b) => b.date.getTime() - a.date.getTime()) }}
+  <li
+    ><a href="{{ post.url }}">{{ post.data.title }}</a> <small><time datetime="{{ post.date }}">{{ dateTimeFormatter.format(post.date) }}</time></small>
+    <div>{{ post.data.description }}</div></li>
+{{ /for }}
+</ul>

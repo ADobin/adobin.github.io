@@ -1,0 +1,7 @@
+ul.posts {
+	list-style-type: square;
+	
+	 li time {
+		font-style: italic;
+	}
+}

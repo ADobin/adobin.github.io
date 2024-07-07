@@ -1,6 +1,6 @@
 ---
 title: Tailscale hostnames for Pi-hole stats
-date: 2022/08/01
+date: 2022-08-01
 draft: false
 description: Adding support for conditional forwarding to include your Tailscale hostnames in your Pi-hole statistics.
 tags:
@@ -13,7 +13,7 @@ tags:
 Tailscale publishes a great [article](https://tailscale.com/kb/1114/pi-hole/) on how to use a [Pi-hole](https://pi-hole.net/) as the DNS server on your tailnet, allowing you to fully control the DNS of your device no matter what network you are connected to while leveraging their Magic DNS to connect to the other devices on your tailnet. One thing it doesn't cover is how to reenable conditional forwarding for your Pi-hole so that your statistics are not full of your Tailscale assigned `100.x.x.x` addresses but instead show the machines hostname.
 
 ## Conditional forwarding
-Pi-hole already supports conditional forwarding but the UI only lets you configure a single local network. If you are like me, you still want to get the statistics for your local network but also would like to get the statics for machines on your tailnet. Luckily, Pi-hole uses dnsmasq and it's easy enough to add our own configuration file to support this use case.
+Pi-hole already supports conditional forwarding but the UI only lets you configure a single local network. If you are like me, you still want to get the statistics for your local network but also would like to get the statics for machines on your tailnet. Luckily, Pi-hole uses dnsmasq and it's easy enough to add our own configuration file to support this use case.  
 
 ## Configuration
 Pi-hole will load all configuration files for dnsmasq from `/etc/dnsmasq.d/`. To support looking up the Tailscale hostnames, we need to add our own configuration file to this directory.
