@@ -4,7 +4,7 @@ Welcome to my personal blog! I'm Alex Dobin, a software engineer and homelab ent
 
 ## Tech stack
 - [Eleventy](https://www.11ty.dev/)
-- [GitHub pages]](https://pages.github.com/)
+- [GitHub pages](https://pages.github.com/)
 - [GitHub Actions](https://docs.github.com/actions)
 
 ## Development
