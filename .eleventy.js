@@ -50,7 +50,7 @@ export default function (eleventyConfig) {
 			base: "https://alexdobin.com/",
 			author: {
 				name: "Alex Dobin",
-				email: "alex@dobin.dev", // Optional
+				email: "rssfeedback@dobin.dev", // Optional
 			}
 		}
 	});
