@@ -6,8 +6,8 @@ eleventyNavigation:
 ---
 # About Alex
 
-Hi, I'm Alex Dobin.
+Hi, I'm Alex Dobin!
 
-I currently work as a software engineer manager at Microsoft on Power Apps, responsible for the authoring experiences for users on our platform.
+I currently work as a software engineering manager at Microsoft on Power Apps, responsible for the authoring experiences for users on our platform.
 
-Outside of work, I enjoy exploring Washington state and riding my motorcycle. I also spend a lot of time with my dog, Marco.
+Outside of work, I enjoy spending time with my wife, daughter, and two dogs. I also enjoy exploring Washington state and riding my motorcycle.
