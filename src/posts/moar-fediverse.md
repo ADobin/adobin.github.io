@@ -8,6 +8,8 @@ tags:
   - fediverse
   - homelab
   - selfhosted
+redirect_from:
+  - /blog/moar-fediverse
 ---
 
 I've been running a single user Mastodon instance for a few months now. It's been running smoothly and has let me interact with the exodus of users from the bird site. But it can be lonely on a single user instance. Discovery can be hard, following #hashtags only shows you posts from 

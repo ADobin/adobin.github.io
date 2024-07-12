@@ -7,6 +7,8 @@ tags:
   - tailscale
   - pi-hole
   - magicdns
+redirect_from:
+  - /blog/tailscale-hostnames-for-pi-hole-stats
 ---
 [Tailscale](https://tailscale.com) is a fantastic secure mesh VPN that lets you connect all of your devices to each other, no matter where they are or if you've exposed them publicly to the internet. I use it extensively to use all my homelab services and run it on virtually every server. They have a very generous free tier and hope that enthusiasts enjoy it so much that they bring it to their workplace.
 
