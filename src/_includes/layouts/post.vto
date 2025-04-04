@@ -6,4 +6,5 @@ layout: layouts/base.webc
 
 <h1>{{ title }}</h1>
 <small style="font-style: italic">First published on <time datetime="{{ date }}">{{ dateTimeFormatter.format(date) }}</time></small>
+{{if updated }}<br><small style="font-style: italic">Updated on <time datetime="{{ updated }}">{{ dateTimeFormatter.format(updated) }}</time></small>{{ /if }}
 {{ content }}
