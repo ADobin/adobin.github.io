@@ -22,12 +22,12 @@ updates:
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
-  - package-ecosystem: 'github-actions'
-    directory: '/'
-    labels:
-      - 'dependencies'
-      # Add Kodiak `merge.automerge_label`
-      - 'ship it!'
-    schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: 'daily'
+#  - package-ecosystem: 'github-actions'
+#    directory: '/'
+#    labels:
+#      - 'dependencies'
+#      # Add Kodiak `merge.automerge_label`
+#      - 'ship it!'
+#    schedule:
+#      # Check for updates to GitHub Actions every weekday
+#      interval: 'daily'
