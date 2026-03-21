@@ -1,0 +1,82 @@
+/**
+ * One Dark inspired theme for PrismJS
+ * Scoped to dark mode via [data-theme="dark"]
+ */
+
+[data-theme="dark"] code[class*="language-"],
+[data-theme="dark"] pre[class*="language-"] {
+	color: #abb2bf;
+}
+
+[data-theme="dark"] pre[class*="language-"]::-moz-selection,
+[data-theme="dark"] pre[class*="language-"] ::-moz-selection,
+[data-theme="dark"] code[class*="language-"]::-moz-selection,
+[data-theme="dark"] code[class*="language-"] ::-moz-selection {
+	background: #3e4451;
+}
+
+[data-theme="dark"] pre[class*="language-"]::selection,
+[data-theme="dark"] pre[class*="language-"] ::selection,
+[data-theme="dark"] code[class*="language-"]::selection,
+[data-theme="dark"] code[class*="language-"] ::selection {
+	background: #3e4451;
+}
+
+[data-theme="dark"] pre[class*="language-"] {
+	border-color: #3a3a4e;
+	background-color: #282c34;
+}
+
+[data-theme="dark"] :not(pre) > code[class*="language-"] {
+	background: #2c313a;
+	border-color: #3a3a4e;
+}
+
+[data-theme="dark"] .token.comment,
+[data-theme="dark"] .token.prolog,
+[data-theme="dark"] .token.doctype,
+[data-theme="dark"] .token.cdata {
+	color: #5c6370;
+}
+
+[data-theme="dark"] .token.punctuation,
+[data-theme="dark"] .token.operator {
+	color: #abb2bf;
+}
+
+[data-theme="dark"] .token.string,
+[data-theme="dark"] .token.attr-value {
+	color: #98c379;
+}
+
+[data-theme="dark"] .token.entity,
+[data-theme="dark"] .token.url,
+[data-theme="dark"] .token.symbol,
+[data-theme="dark"] .token.number,
+[data-theme="dark"] .token.boolean,
+[data-theme="dark"] .token.variable,
+[data-theme="dark"] .token.constant,
+[data-theme="dark"] .token.property,
+[data-theme="dark"] .token.regex,
+[data-theme="dark"] .token.inserted {
+	color: #d19a66;
+}
+
+[data-theme="dark"] .token.atrule,
+[data-theme="dark"] .token.keyword,
+[data-theme="dark"] .token.attr-name,
+[data-theme="dark"] .language-autohotkey .token.selector {
+	color: #c678dd;
+}
+
+[data-theme="dark"] .token.function,
+[data-theme="dark"] .token.deleted,
+[data-theme="dark"] .language-autohotkey .token.tag {
+	color: #e06c75;
+}
+
+[data-theme="dark"] .token.tag,
+[data-theme="dark"] .token.selector,
+[data-theme="dark"] .language-autohotkey .token.keyword {
+	color: #61afef;
+}

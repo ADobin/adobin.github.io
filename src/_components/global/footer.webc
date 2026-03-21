@@ -10,9 +10,18 @@
 			width: unset;
 		}
 	}
+
+	.light-only { display: inline; }
+	.dark-only { display: none; }
+	picture:has(.light-only) { display: inline; }
+	picture:has(.dark-only) { display: none; }
+	[data-theme="dark"] .light-only { display: none; }
+	[data-theme="dark"] .dark-only { display: inline; }
+	[data-theme="dark"] picture:has(.light-only) { display: none; }
+	[data-theme="dark"] picture:has(.dark-only) { display: inline; }
 </style>
 <footer>
-	<a rel="external noreferrer" href="https://github.com/adobin" target="_blank"><img class="mark" src="/static/GitHubMark.png" alt="GitHub" title="github.com/adobin" /></a>
+	<a rel="external noreferrer" href="https://github.com/adobin" target="_blank"><img class="mark light-only" src="/static/GitHubMark.png" alt="GitHub" title="github.com/adobin" /><img class="mark dark-only" src="/static/GitHubMark-light.svg" alt="GitHub" title="github.com/adobin" /></a>
 	&nbsp;
 	<a rel="external noreferrer me" href="https://social.alexdobin.com/@alex" target="_blank"><img class="mark" src="/static/mastodon-mark.svg" alt="Mastodon" title="social.alexdobin.com/@alex" /></a>
 	&nbsp;

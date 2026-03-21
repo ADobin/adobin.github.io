@@ -22,20 +22,89 @@
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#ffffff">
+		<script webc:raw webc:keep>
+			(function() {
+				var saved = localStorage.getItem('theme');
+				var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				var theme = saved || (prefersDark ? 'dark' : 'light');
+				document.documentElement.dataset.theme = theme;
+				if (theme === 'dark') {
+					document.querySelector('meta[name="theme-color"]').content = '#1a1a2e';
+				}
+			})();
+		</script>
 		<style webc:keep @html="this.getCSS(this.page.url)"></style>
 		<script webc:keep @html="this.getJS(this.page.url)"></script>
 		<script webc:raw webc:keep defer data-domain="alexdobin.com" src="https://plausible.alexdobin.com/js/plausible.js"></script>
 	</head>
 	<body>
-		<nav class="nav-bar" @html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all), { activeKey: activeKey($data), activeListItemClass: 'current-nav' })"></nav>
+		<nav class="nav-bar">
+			<template webc:nokeep @html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all), { activeKey: activeKey($data), activeListItemClass: 'current-nav' })"></template>
+			<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+		</nav>
 		<main><template webc:nokeep @html="this.content"></template></main>
 		<footer webc:nokeep></footer>
+		<script webc:raw webc:keep>
+			(function() {
+				var toggle = document.getElementById('theme-toggle');
+				var meta = document.querySelector('meta[name="theme-color"]');
+
+				function getTheme() {
+					return document.documentElement.dataset.theme || 'light';
+				}
+
+				function updateToggleLabel() {
+					toggle.textContent = getTheme() === 'dark' ? 'Light Mode' : 'Dark Mode';
+				}
+
+				function setTheme(theme, save) {
+					document.documentElement.dataset.theme = theme;
+					meta.content = theme === 'dark' ? '#1a1a2e' : '#ffffff';
+					updateToggleLabel();
+					if (save) localStorage.setItem('theme', theme);
+				}
+
+				updateToggleLabel();
+				document.documentElement.classList.add('theme-ready');
+
+				toggle.addEventListener('click', function() {
+					setTheme(getTheme() === 'dark' ? 'light' : 'dark', true);
+				});
+
+				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+					if (!localStorage.getItem('theme')) {
+						setTheme(e.matches ? 'dark' : 'light', false);
+					}
+				});
+			})();
+		</script>
 	</body>
 </html>
 
 <style>
+	:root,
+	[data-theme="light"] {
+		--color-bg: #ffffff;
+		--color-text: #333333;
+		--color-accent: rgb(255, 62, 0);
+		--color-accent-subtle: rgba(255, 62, 0, 0.1);
+		--color-border: #dddddd;
+	}
+
+	[data-theme="dark"] {
+		--color-bg: #1a1a2e;
+		--color-text: #e0e0e0;
+		--color-accent: rgb(255, 107, 53);
+		--color-accent-subtle: rgba(255, 107, 53, 0.15);
+		--color-border: #3a3a4e;
+	}
+
 	@view-transition {
 		navigation: auto;
+	}
+
+	html.theme-ready body {
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	body {
@@ -44,7 +113,8 @@
 			Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 		font-size: 14px;
 		line-height: 1.5;
-		color: #333;
+		color: var(--color-text);
+		background-color: var(--color-bg);
 	}
 
 	h1,
@@ -79,20 +149,23 @@
 	main {
 		position: relative;
 		max-width: 56em;
-		background-color: white;
+		background-color: var(--color-bg);
 		padding: 2em;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
 	.nav-bar {
-		border-bottom: 1px solid rgba(255, 62, 0, 0.1);
+		border-bottom: 1px solid var(--color-accent-subtle);
 		font-weight: 300;
 		padding: 0 1em;
+		display: flex;
+		align-items: center;
 
 		ul {
 			margin: 0;
 			padding: 0;
+			flex: 1;
 		}
 
 		/* clearfix */
@@ -124,11 +197,28 @@
 				content: '';
 				width: calc(100% - 1em);
 				height: 2px;
-				background-color: rgb(255, 62, 0);
+				background-color: var(--color-accent);
 				display: block;
 				bottom: -1px;
 			}
 		}
 
+	}
+
+	.theme-toggle {
+		background: none;
+		border: 1px solid var(--color-border);
+		color: var(--color-text);
+		padding: 0.4em 0.8em;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 0.85em;
+		white-space: nowrap;
+		transition: border-color 0.3s ease, color 0.3s ease;
+	}
+
+	.theme-toggle:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
 	}
 </style>
