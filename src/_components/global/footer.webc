@@ -33,4 +33,6 @@
 			title="linkedin.com/in/alex-dobin/"
 		/>
 	</a>
+	&nbsp;
+	<a href="/feed.xml" type="application/atom+xml"><img class="mark" src="/static/rss.png" eleventy:widths="64" alt="Atom feed" title="Subscribe to the Atom feed" /></a>
 </footer>

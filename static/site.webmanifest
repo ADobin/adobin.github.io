@@ -1,6 +1,8 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Alex Dobin",
+    "short_name": "Alex Dobin",
+    "description": "A blog about technology and homelabbing",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
