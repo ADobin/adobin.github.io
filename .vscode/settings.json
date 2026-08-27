@@ -7,15 +7,9 @@
 		"fediverse",
 		"hostnames",
 		"markdown",
-		"rehype",
-		"sveltejs",
-		"sveltekit",
 		"tailnet",
 		"Tailscale",
-		"Traefik",
-		"vfile"
+		"Traefik"
 	],
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"eslint.validate": ["javascript", "javascriptreact", "svelte"],
 	"editor.insertSpaces": false
 }
