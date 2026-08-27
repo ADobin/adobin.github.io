@@ -1,21 +1,15 @@
 ---
 title: Blog
+description: Posts about technology, homelabbing, and self-hosting.
 eleventyImport:
-  collections: ["post"]
+  collections: ["posts"]
 eleventyNavigation:
   key: blog
   order: 3
 redirect_from:
   - /blog
 ---
-<style>{{ include "components/posts.css"}}</style>
+<style>{{ include "components/posts.css" }}</style>
 
-{{ set dateTimeFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: "long" }) }}
 <h1>Recent posts</h1>
-<ul class="posts">
-{{ for post of collections.posts |> filter(post => !post.data.draft) |> sort((a, b) => b.date.getTime() - a.date.getTime()) }}
-  <li
-    ><a href="{{ post.url }}">{{ post.data.title }}</a> <small><time datetime="{{ post.date }}">{{ dateTimeFormatter.format(post.date) }}</time></small> {{if post.data.updated }} <small>Updated <time datetime="{{ post.data.updated }}">{{ dateTimeFormatter.format(post.data.updated) }}</time></small>{{ /if }}
-    <div>{{ post.data.description }}</div></li>
-{{ /for }}
-</ul>
+{{ include "components/post-list.vto" { posts: collections.posts.toSorted((a, b) => b.date - a.date) } }}

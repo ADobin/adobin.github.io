@@ -13,3 +13,5 @@ To run the site locally, you will need to have Node.js installed. You can then r
 ```bash
 npm run serve
 ```
+
+Posts live in `src/posts/` as Markdown files. Setting `draft: true` in a post's front matter keeps it visible locally with `npm run serve` but excludes it entirely (page and feed) from production builds.

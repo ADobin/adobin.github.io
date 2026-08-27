@@ -6,7 +6,34 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
+import site from "./src/_data/site.json" with { type: "json" };
+
+// Front matter dates like `date: 2023-01-08` are parsed as midnight UTC, so they
+// must also be formatted in UTC or they render a day early in western time zones.
+// See https://www.11ty.dev/docs/dates/#dates-off-by-one-day
+const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long",
+	timeZone: "UTC",
+});
+
+function toDate(value) {
+	return value instanceof Date ? value : new Date(value);
+}
+
 export default function (eleventyConfig) {
+	// Drafts are skipped entirely (no page, no feed entry) in production builds
+	// but still render locally with `--serve`/`--watch` for previewing.
+	// See https://www.11ty.dev/docs/quicktips/draft-posts/
+	eleventyConfig.addPreprocessor("drafts", "*", (data) => {
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+			return false;
+		}
+	});
+
+	eleventyConfig.addFilter("readableDate", (value) => readableDateFormatter.format(toDate(value)));
+	eleventyConfig.addFilter("isoDate", (value) => toDate(value).toISOString().slice(0, 10));
+	eleventyConfig.addFilter("siteUrl", (path) => new URL(path, site.url).href);
+
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(pluginWebc, {
 		// Glob to find no-import global components
@@ -44,12 +71,12 @@ export default function (eleventyConfig) {
 			limit: 10,     // 0 means no limit
 		},
 		metadata: {
-			language: "en",
-			title: "Alex Dobin's Blog",
-			subtitle: "A blog about technology and homelabbing",
-			base: "https://alexdobin.com/",
+			language: site.language,
+			title: site.feedTitle,
+			subtitle: site.description,
+			base: site.url,
 			author: {
-				name: "Alex Dobin",
+				name: site.author,
 				email: "rssfeedback@dobin.dev", // Optional
 			}
 		}

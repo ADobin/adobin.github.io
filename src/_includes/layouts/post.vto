@@ -3,9 +3,11 @@ layout: layouts/base.webc
 ---
 <style>{{ include "components/prism-ghcolors.css" }}</style>
 <style>{{ include "components/prism-onedark.css" }}</style>
-{{ set dateTimeFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: "long" }) }}
+<style>{{ include "components/post.css" }}</style>
 
 <h1>{{ title }}</h1>
-<small style="font-style: italic">First published on <time datetime="{{ date }}">{{ dateTimeFormatter.format(date) }}</time></small>
-{{if updated }}<br><small style="font-style: italic">Updated on <time datetime="{{ updated }}">{{ dateTimeFormatter.format(updated) }}</time></small>{{ /if }}
+<p class="post-meta">
+  <small>First published on <time datetime="{{ page.date |> isoDate }}">{{ page.date |> readableDate }}</time></small>
+  {{ if updated }}<br><small>Updated on <time datetime="{{ updated |> isoDate }}">{{ updated |> readableDate }}</time></small>{{ /if }}
+</p>
 {{ content }}
