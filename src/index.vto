@@ -1,0 +1,17 @@
+---
+title: Home
+description: Alex Dobin is a software engineer in Washington writing about technology, homelabbing, and self-hosting.
+eleventyImport:
+  collections: ["posts"]
+eleventyNavigation:
+  key: home
+  order: 1
+---
+<style>{{ include "components/posts.css" }}</style>
+
+<h1>Alex Dobin</h1>
+<p>Software engineer living in <strong>Washington</strong>. Working at Microsoft on <a rel="external noreferrer" href="https://powerapps.microsoft.com" target="_blank">Power Apps</a>.</p>
+
+<h2>Recent posts</h2>
+{{ include "components/post-list.vto" { posts: collections.posts.toSorted((a, b) => b.date - a.date).slice(0, 5) } }}
+<p><a href="/posts/">All posts</a> &middot; <a href="{{ site.feedPath }}">Atom feed</a></p>
