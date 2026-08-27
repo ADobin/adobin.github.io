@@ -1,0 +1,16 @@
+---
+permalink: /sitemap.xml
+layout: false
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{- for item of collections.all.filter((item) => item.outputPath?.endsWith(".html")) }}
+  <url>
+    <loc>{{ item.url |> siteUrl }}</loc>
+    {{- if item.data.updated || item.data.date }}
+    <lastmod>{{ (item.data.updated ?? item.date) |> isoDate }}</lastmod>
+    {{- /if }}
+  </url>
+{{- /for }}
+</urlset>

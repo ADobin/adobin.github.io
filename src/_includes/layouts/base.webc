@@ -3,8 +3,14 @@
 	activeKey: function(data) {
 		return data.eleventyNavigation?.key ?? data.parentNav ?? data.page.fileSlug;
 	},
-	fullTitle: function(title) {
-		return `${title} - Alex Dobin`;
+	fullTitle: function(data) {
+		return data.page.url === "/" ? data.site.title : `${data.title} - ${data.site.title}`;
+	},
+	pageDescription: function(data) {
+		return data.description || data.site.description;
+	},
+	isPost: function(data) {
+		return Array.isArray(data.tags) && data.tags.includes("posts");
 	}
 }
 ---
@@ -13,8 +19,22 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<title @text="fullTitle(this.title)"></title>
+		<meta name="description" :content="pageDescription($data)">
+		<meta name="author" :content="$data.site.author">
+		<title @text="fullTitle($data)"></title>
+		<link rel="canonical" :href="siteUrl($data.page.url)">
+		<link rel="alternate" type="application/atom+xml" :title="$data.site.feedTitle" :href="$data.site.feedPath">
+		<meta property="og:type" :content="isPost($data) ? 'article' : 'website'">
+		<meta property="og:title" :content="$data.title">
+		<meta property="og:description" :content="pageDescription($data)">
+		<meta property="og:url" :content="siteUrl($data.page.url)">
+		<meta property="og:site_name" :content="$data.site.title">
+		<meta property="og:locale" content="en_US">
+		<meta webc:if="isPost($data)" property="article:published_time" :content="isoDate($data.page.date)">
+		<meta webc:if="isPost($data) && $data.updated" property="article:modified_time" :content="isoDate($data.updated)">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" :content="$data.title">
+		<meta name="twitter:description" :content="pageDescription($data)">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
