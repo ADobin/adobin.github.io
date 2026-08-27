@@ -1,7 +1,13 @@
 ul.posts {
 	list-style-type: square;
-	
-	 li time {
+
+	li time {
 		font-style: italic;
+	}
+
+	.draft-badge {
+		color: var(--color-accent);
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 }
