@@ -8,9 +8,10 @@ Welcome to my personal blog! I'm Alex Dobin, a software engineer and homelab ent
 - [GitHub Actions](https://docs.github.com/actions)
 
 ## Development
-To run the site locally, you will need to have Node.js installed. You can then run the following commands to get started:
+To run the site locally, you will need to have Node.js installed (see `.node-version`). You can then run the following commands to get started:
 
 ```bash
+npm ci
 npm run serve
 ```
 
