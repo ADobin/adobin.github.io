@@ -13,14 +13,11 @@ updates:
       - 'dependencies'
       # Add Kodiak `merge.automerge_label`
       - 'ship it!'
-# GitHub Actions updates are intentionally disabled; see #1264 (the
-# actions/upload-pages-artifact v4 bump broke deploys twice: #1261, #1263).
-#  - package-ecosystem: 'github-actions'
-#    directory: '/'
-#    labels:
-#      - 'dependencies'
-#      # Add Kodiak `merge.automerge_label`
-#      - 'ship it!'
-#    schedule:
-#      # Check for updates to GitHub Actions every weekday
-#      interval: 'daily'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    labels:
+      - 'dependencies'
+      # Add Kodiak `merge.automerge_label`
+      - 'ship it!'
+    schedule:
+      interval: 'weekly'
